@@ -1,32 +1,33 @@
 "use client";
-import React, { useState } from "react";
-import { Box, Button, Typography, TextField, MenuItem } from "@mui/material";
-import { DateCalendar, LocalizationProvider } from "@mui/x-date-pickers";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import dayjs from "dayjs";
+import React from "react";
+import { Box, Button, Typography } from "@mui/material";
 import { AiOutlineMail } from "react-icons/ai";
+import { HiArrowUpRight } from "react-icons/hi2";
 
 function About() {
-  const summary = "I am a 4th year student from the University of Arizona. I have always been on to jump before thinking things through and that is how I discovered coding. Along the way, I began to realize that computer science was much more than programming, but instead a much for general skill of problem solving, agility to new tools, and curiorsity. In the last four years, I have learned about myself from organizing my time more efficiently, giving my energy more sparingly, and learning to work harder but smarter everyday. That being said if you want to learn more about me or need help with a project feel free to reach out to me!"
+  const summary =
+    "I am a 4th-year student from the University of Arizona. I have always been one to jump before thinking things through, and that is how I discovered coding. Along the way, I realized that computer science is much more than just programming—it is about problem-solving, adaptability, and curiosity. In the last four years, I have learned about myself, from organizing my time more efficiently to working smarter every day. If you want to learn more or need help with a project, feel free to reach out!";
 
   return (
     <Box
       sx={{
-        height: "100vh",
+        height: "90vh",
         display: "flex",
         alignItems: "center",
-        justifyContent: 'center',
+        justifyContent: "center",
         width: "100%",
+        padding: "1rem",
       }}
     >
       <Box
         sx={{
           display: "flex",
-          flexDirection: "row",
-          width: "1000px",
+          flexDirection: { xs: "column", md: "row" },
           justifyContent: "center",
           alignItems: "center",
           gap: "20px",
+          maxWidth: "1000px",
+          width: "100%",
         }}
       >
         <Box
@@ -34,140 +35,75 @@ function About() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            width: "300px",
+            textAlign: "center",
+            width: { xs: "100%", md: "300px" },
           }}
         >
-          <Typography variant="h2">About Me.</Typography>
-          <Box
-      sx={{
-        position: 'relative',
-      }}
-    >
-      <img
-        src="/portrait.JPG"
-        alt="Personal Portrait"
-        style={{
-          width: '300px',
-          height: '300px',
-          borderRadius: "100%",
-          objectFit: 'cover',
-          border: "4px solid",
-          borderColor: "#0583F2"
-        }}
-      />
-    </Box>
-          
+          <Typography
+            variant="h2"
+            fontSize={{ xs: "2rem", md: "3rem" }}
+            fontWeight="bold"
+          >
+            About Me.
+          </Typography>
+          <Box sx={{ position: "relative", marginTop: "10px" }}>
+            <img
+              src="/portrait.JPG"
+              alt="Personal Portrait"
+              style={{
+                width: "200px",
+                height: "200px",
+                borderRadius: "100%",
+                objectFit: "cover",
+                border: "4px solid #555555",
+              }}
+            />
+          </Box>
         </Box>
+
         <Box
           sx={{
             display: "flex",
             flexDirection: "column",
-            gap: "20px"
+            gap: "15px",
+            width: { xs: "100%", md: "60%" },
           }}
         >
-          <Typography>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              gap: "5px",
+            }}
+          >
+            <a
+              href="https://my-personal-website.nyc3.cdn.digitaloceanspaces.com/Sohan%20Bhakta%20resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                textDecoration: "none",
+                color: "black",
+                fontSize: "1rem",
+                fontWeight: "bold",
+              }}
+            >
+              Resume
+            </a>
+            <HiArrowUpRight size={20} />
+          </Box>
+          
+          <Typography fontSize={{ xs: "0.9rem", md: "1rem" }}>
             {summary}
           </Typography>
-          <Button 
-          href="./contact"
-          variant="outlined"
-          sx={{
-            display: 'flex',
-            position: 'right'
-          }}>Contact Me
-          <AiOutlineMail style={{
-            fontSize: "15px",
-            marginBottom: "3px",
-            marginLeft: "5px"
-          }}/>
-          </Button>
-          <Box sx={{
-            display: "flex",
-            flexDirection: "row",
-            gap: "10px",
-            justifyContent: "space-around"
-          }}>
-            <Box
-      sx={{
-        position: 'relative',
-        
-      }}
-    >
-      <img
-        src="/amazon.svg"
-        alt="Personal Portrait"
-        style={{
-          width: '100px',
-          height: '100px',
-          borderRadius: "100%",
-          objectFit: 'cover',
-          border: "3px solid",
-          backgroundColor: "white",
-          borderColor: "#0583F2"
-        }}
-      />
-          </Box>
-          <Box
-      sx={{
-        position: 'relative',
-      }}
-    >
-      <img
-        src="/avnet.svg"
-        alt="Personal Portrait"
-        style={{
-          width: '100px',
-          height: '100px',
-          borderRadius: "100%",
-          objectFit: 'cover',
-          border: "3px solid",
-           backgroundColor: "white",
-           borderColor: "#0583F2"
-        }}
-      />
-          </Box>
-          <Box
-      sx={{
-        position: 'relative',
-      }}
-    >
-      <img
-        src="/komatsu.svg"
-        alt="Personal Portrait"
-        style={{
-          width: '100px',
-          height: '100px',
-          borderRadius: "100%",
-          objectFit: 'cover',
-          border: "3px solid",
-           backgroundColor: "white",
-           borderColor: "#0583F2"
-        }}
-      />
-          </Box>
-          <Box
-      sx={{
-        position: 'relative',
-      }}
-    >
-      <img
-        src="/fullUAlogo.png"
-        alt="Personal Portrait"
-        style={{
-          width: '100px',
-          height: '100px',
-          borderRadius: "100%",
-          objectFit: 'cover',
-          border: "3px solid",
-           backgroundColor: "white",
-           borderColor: "#0583F2"
-        }}
-      />
-          </Box>
+          
+          <Typography fontSize={{ xs: "0.9rem", md: "1rem" }} fontWeight="bold">
+  Personal: sohanrbhakta@outlook.com
+</Typography>
+
+          
         </Box>
-        
       </Box>
-    </Box>
     </Box>
   );
 }

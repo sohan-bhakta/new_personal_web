@@ -49,15 +49,6 @@ rel="noopener noreferrer">
           color: "reverse.primary"
         }}/>
         </a>
-        <Link
-          href="/contact"
-          passHref
-          style={{
-            textDecoration: "none",
-          }}
-        >
-          <MailOutlineOutlined sx={{color: 'reverse.primary'}} />
-        </Link>
     </Box>
   )
 }

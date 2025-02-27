@@ -4,37 +4,17 @@ import React, { useState, useEffect } from "react";
 import { ThemeProvider, CssBaseline, Box } from "@mui/material";
 import Navbar from "./components/navbar/page";
 import Footer from "./components/footer/page";
-import { lightTheme, darkTheme } from "./theme";
+import { lightTheme } from "./theme";
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(true);
- 
 
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("isDarkMode");
-    if (savedTheme !== null) {
-      setIsDarkMode(JSON.parse(savedTheme));
-    }
-   
-  }, []);
-
-  
-  
-
-  const toggleTheme = () => {
-    setIsDarkMode((prevMode) => {
-      const newMode = !prevMode;
-      localStorage.setItem("isDarkMode", JSON.stringify(newMode));
-      return newMode;
-    });
-  };
 
   return (
     <html lang="en">
       <body>
-        <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
+        <ThemeProvider theme={lightTheme}>
           <CssBaseline />
           <Box
             sx={{
@@ -45,10 +25,10 @@ export default function RootLayout({
           >
             <Box
               sx={{
-                height: "5vh",
+                height: "10vh",
               }}
             >
-              <Navbar onToggleTheme={toggleTheme} isDarkMode={isDarkMode} />
+              <Navbar />
             </Box>
             <Box sx={{}}>{children}</Box>
             <Footer />

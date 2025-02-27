@@ -1,82 +1,41 @@
 import React, { useState } from "react";
-import { Link, Button, Box, Drawer, List, ListItem, ListItemText } from "@mui/material";
-import { LightModeOutlined, LightMode } from '@mui/icons-material';
-import { GiHamburgerMenu } from "react-icons/gi";
+import { Button, Box } from "@mui/material";
+import { RiGalleryView2 } from "react-icons/ri";
 
-interface NavbarProps {
-  onToggleTheme: () => void;
-  isDarkMode: boolean;
-}
-
-function Navbar({ onToggleTheme, isDarkMode }: NavbarProps) {
-  const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
-  const toggleDrawer = async (open: boolean) => {
-    setDrawerOpen(open);
-  };
-  
-  
+function Navbar() {
   return (
     <Box
-    sx={{
-      display: "flex"
-      
-    }}>
-    <Button href="./">
-      Home
-    </Button>
-    <Box
       sx={{
-        flex: 1,
-        display: { xs: "none", md: "flex" },
-        justifyContent: "flex-end", 
-        alignItems: "center",               
-        color: "text.primary",
+        height: "100%",
+        display: "flex",
+        marginRight: "10px",
+        marginLeft: "10px",
       }}
     >
-        <Button href="./experience" color="primary">
-        Experience
-      </Button>
-      <Button href="./contact" color="primary">
-        Contact
-      </Button>
-      <Button href="./about" color="primary">
-        About
-      </Button>
-      <Button color="primary" onClick={() => onToggleTheme()}>
-        {isDarkMode ? <LightMode/> : <LightModeOutlined/>}
-      </Button>
-    </Box>
-    <Box
-    sx={{
-      flex: 1,
-      display: { xs: 'flex', md: 'none'},
-      justifyContent: "flex-end"
-    }}>
-      <Button onClick={() => toggleDrawer(true)}>
-        <GiHamburgerMenu />
-      </Button>
-      <Drawer
-          anchor="top"
-          open={drawerOpen}
-          onClose={() => toggleDrawer(false)}
-        >
-          <Box sx={{ width: 250 }}>
-            <Button href="./experience">
-              Experience
-            </Button>
-            <Button href="./contact">
-              Contact
-            </Button>
-            <Button href="./about">
-              About
-            </Button>
-            <Button onClick={onToggleTheme}>
-              {isDarkMode ? "Light Mode" : "Dark Mode"}
-            </Button>
-          </Box>
-        </Drawer>
+      <Button href="./">Sohan Bhakta</Button>
+      <Box
+        sx={{
+          flex: 1,
+          display: "flex",
+          justifyContent: "flex-end",
+          alignItems: "center",
+          color: "text.primary",
+        }}
+      >
+        
+          <Button href="./project" color="primary">
+            Projects
+            <RiGalleryView2 style={{
+            marginBottom: "1px", marginLeft: '2px'}} />
+          </Button>
+          
 
-    </Box>
+        
+          <Button href="./about" color="primary">
+            About
+          </Button>
+
+      </Box>
     </Box>
   );
 }

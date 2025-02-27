@@ -10,7 +10,6 @@ import {
   CardActions,
 } from "@mui/material";
 import { FaArrowRight } from "react-icons/fa";
-import { gsap } from "gsap";
 
 function Projects() {
   return (
@@ -42,7 +41,7 @@ function Projects() {
             <CardMedia
               component="img"
               height="140px"
-              image="/komatsu_project.png" // Correct path
+              image="/komatsu_project.png"
               alt="Komatsu Project"
             />
             <CardContent
@@ -128,7 +127,7 @@ function Projects() {
             <CardMedia
               component="img"
               height="140px"
-              image="/levenshtein.png" // Correct path
+              image="/levenshtein.png"
               alt="Komatsu Project"
             />
             <CardContent>

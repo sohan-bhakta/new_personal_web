@@ -1,28 +1,9 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, ButtonGroup, Typography } from "@mui/material";
 import React, { useState, useEffect, useRef } from "react";
 import { FaArrowRight } from "react-icons/fa";
-import { IoLocationOutline } from "react-icons/io5";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
+import { CiMapPin } from "react-icons/ci";
+import Typewriter from "../../cui/typewritter";
 function Intro() {
-  // this controls the scroll trigger function
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    const initialTrigger = ScrollTrigger.create({
-      trigger: "#heading",
-      start: "top top",
-      end: "285vh",
-      pinSpacing: false,
-      pin: true,
-    });
-
-    return () => {
-      initialTrigger.kill();
-    };
-  }, []);
-
   return (
     <Box
       sx={{
@@ -30,20 +11,6 @@ function Intro() {
         position: "relative",
       }}
     >
-      <Box
-        sx={{
-          position: "absolute",
-          left: "40%",
-          width: "50%",
-          height: "50%",
-          backgroundImage: "url('/arizona.svg')",
-          backgroundSize: "contain",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          zIndex: 0,
-        }}
-      />
-
       <Box
         id="heading"
         sx={{
@@ -58,69 +25,69 @@ function Intro() {
           sx={{
             display: "flex",
             flexDirection: { xs: "column", md: "row" },
-            alignItems: { xs: "center", md: "center" },
-            gap: "5px"
+            gap: "5px",
+            marginLeft: "10px"
           }}
         >
-          <Box sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: "5px"
-          }}>
-          <Typography
-            variant="h5"
+          <Box
             sx={{
-              fontSize: { xs: "5rem", md: "7rem" },
+              display: "flex",
+              flexDirection: "column",
+              gap: "5px",
             }}
           >
-            Sohan Bhakta
-          </Typography>
-          
-            <Typography variant="h5">Full-Stack Developer</Typography>
-            
+            <Typography
+              variant="h5"
+              sx={{
+                fontSize: { xs: "5rem", md: "7rem" },
+              }}
+            >
+              Sohan Bhakta
+            </Typography>
+
+            <Box sx={{ fontSize: "3rem" }}>
+              <Typewriter
+                text={[
+                  "Full-Stack Dev",
+                  "Data Engineer",
+                  "Data Analytics",
+                ]}
+                speed={70}
+                waitTime={2500}
+                deleteSpeed={40}
+                cursorChar={"_"}
+              />
+            </Box>
+
             <Box
               sx={{
                 display: "flex",
                 flexDirection: "row",
+                alignItems: "center",
               }}
             >
-              <IoLocationOutline
+              <CiMapPin
                 style={{
                   fontSize: "25px",
                 }}
               />
-              <Typography variant="h5">
-                Based in Tucson, but more than happy to leave
-              </Typography>
-
+              <Typography variant="h5">Based in Tucson, Arizona</Typography>
             </Box>
-            <Button href="./about" variant="outlined" sx={{
-              width: "150px"
-            }}>
+            <Button
+              href="./about"
+              variant="outlined"
+              sx={{
+             
+                width: "150px",
+                marginTop: "1.5rem",
+                marginBottom: "1.5rem"
+              }}
+            >
               About me
               <FaArrowRight />
             </Button>
+            
           </Box>
-          
-            <Box
-              sx={{
-                position: "relative",
-              }}
-            >
-              <img
-                src="/portrait.JPG"
-                alt="Personal Portrait"
-                style={{
-                  width: "250px",
-                  height: "250px",
-                  borderRadius: "100%",
-                  objectFit: "cover",
-                  border: "4px solid",
-                  borderColor: "#0583F2",
-                }}
-              />
-            </Box>
-          
         </Box>
       </Box>
     </Box>
