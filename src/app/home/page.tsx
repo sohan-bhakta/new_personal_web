@@ -1,25 +1,21 @@
 "use client";
 
-import { Box, Button, Typography, useMediaQuery, useTheme } from "@mui/material";
-import { RiDoubleQuotesL, RiDoubleQuotesR } from "react-icons/ri";
-import { cn } from "../utils/cn";
+import { Box, Button } from "@mui/material";
 import { FaArrowDown } from "react-icons/fa";
-import React, { useEffect } from "react";
+import React from "react";
 import Links from "../components/links/page";
 import Intro from "../components/intro/page";
 import Projects from "../components/projects/page";
-import Media from "../components/exerience/page";
-import GridPattern from "../cui/gridpattern";
+import Media from "../components/experience/page";
 
 function Home() {
-
-
-
   return (
-    <Box sx={{
+    <Box
+      sx={{
         display: "flex",
         flexDirection: "column",
-    }}>
+      }}
+    >
       <Box
         sx={{
           display: "flex",
@@ -33,14 +29,14 @@ function Home() {
             flex: 1,
             height: "100%",
             display: "flex",
-            justifyContent: "center"
+            justifyContent: "center",
           }}
         >
           <Intro />
         </Box>
         <Box
           sx={{
-            display: {xs: "none", md:"flex"},
+            display: { xs: "none", md: "flex" },
             justifyContent: "center",
             alignItems: "center",
             height: "100%",
@@ -49,29 +45,29 @@ function Home() {
         >
           <Links />
         </Box>
-        
+
         <Box
+          sx={{
+            position: "absolute",
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+            bottom: "0vh",
+          }}
+        >
+          <Button
             sx={{
-                position: "absolute",
-                width: "100%",
-                display: "flex",
-                justifyContent: "center",
-                bottom: "0vh",
-                
-            }}>
-                <Button
-                sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                }}>
-                    Projects
-                    <FaArrowDown />
-                </Button>
-            </Box>
-            
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            Projects
+            <FaArrowDown />
+          </Button>
+        </Box>
       </Box>
       <Box
-      id= "content-page"
+        id="content-page"
         sx={{
           bgcolor: "background.paper",
           display: "flex",
@@ -83,26 +79,23 @@ function Home() {
           id="project-page"
           sx={{
             bgcolor: "background.paper",
-            paddingBottom: "1rem"
+            paddingBottom: "1rem",
           }}
         >
           <Projects />
         </Box>
-        
       </Box>
       <Box
         sx={{
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          padding: "1rem"
+          padding: "1rem",
         }}
       >
         <Media />
-
       </Box>
-      
-    </ Box>
+    </Box>
   );
 }
 

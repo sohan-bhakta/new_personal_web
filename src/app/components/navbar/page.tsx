@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button, Box } from "@mui/material";
 import { RiGalleryView2 } from "react-icons/ri";
 
@@ -22,19 +22,19 @@ function Navbar() {
           color: "text.primary",
         }}
       >
-        
-          <Button href="./project" color="primary">
-            Projects
-            <RiGalleryView2 style={{
-            marginBottom: "1px", marginLeft: '2px'}} />
-          </Button>
-          
+        <Button href="./project" color="primary">
+          Projects
+          <RiGalleryView2
+            style={{
+              marginBottom: "3px",
+              marginLeft: "2px",
+            }}
+          />
+        </Button>
 
-        
-          <Button href="./about" color="primary">
-            About
-          </Button>
-
+        <Button href="./about" color="primary">
+          About
+        </Button>
       </Box>
     </Box>
   );

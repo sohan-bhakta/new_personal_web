@@ -1,8 +1,48 @@
 "use client";
-import React from "react";
+import React, { useRef, useEffect, useState, ReactNode } from "react";
 import { Box, Button, Typography } from "@mui/material";
 import { AiOutlineMail } from "react-icons/ai";
 import { HiArrowUpRight } from "react-icons/hi2";
+
+interface AnimatedCardProps {
+  children: ReactNode;
+}
+
+const AnimatedCard: React.FC<AnimatedCardProps> = ({ children }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState<boolean>(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisible(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => {
+      if (ref.current) observer.unobserve(ref.current);
+    };
+  }, []);
+
+  return (
+    <Box
+      ref={ref}
+      sx={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? "none" : "translateY(20px)",
+        transition: "opacity 0.6s ease-out, transform 0.6s ease-out",
+      }}
+    >
+      {children}
+    </Box>
+  );
+};
 
 function About() {
   const summary =
@@ -48,7 +88,7 @@ function About() {
           </Typography>
           <Box sx={{ position: "relative", marginTop: "10px" }}>
             <img
-              src="/portrait.JPG"
+              src="https://my-personal-website.nyc3.cdn.digitaloceanspaces.com/photos/portrait.JPG"
               alt="Personal Portrait"
               style={{
                 width: "200px",
@@ -69,39 +109,42 @@ function About() {
             width: { xs: "100%", md: "60%" },
           }}
         >
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-              gap: "5px",
-            }}
-          >
-            <a
-              href="https://my-personal-website.nyc3.cdn.digitaloceanspaces.com/Sohan%20Bhakta%20resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                textDecoration: "none",
-                color: "black",
-                fontSize: "1rem",
-                fontWeight: "bold",
+          <AnimatedCard>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                gap: "5px",
               }}
             >
-              Resume
-            </a>
-            <HiArrowUpRight size={20} />
-          </Box>
-          
-          <Typography fontSize={{ xs: "0.9rem", md: "1rem" }}>
-            {summary}
-          </Typography>
-          
-          <Typography fontSize={{ xs: "0.9rem", md: "1rem" }} fontWeight="bold">
-  Personal: sohanrbhakta@outlook.com
-</Typography>
+              <a
+                href="https://my-personal-website.nyc3.cdn.digitaloceanspaces.com/Sohan%20Bhakta%20resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  textDecoration: "none",
+                  color: "black",
+                  fontSize: "1rem",
+                  fontWeight: "bold",
+                }}
+              >
+                Resume
+              </a>
+              <HiArrowUpRight size={20} />
+            </Box>
 
-          
+            <Typography fontSize={{ xs: "0.9rem", md: "1rem" }}>
+              {summary}
+            </Typography>
+
+            <Typography
+              fontSize={{ xs: "0.9rem", md: "1rem" }}
+              fontWeight="bold"
+            >
+              Personal: sohanrbhakta@outlook.com
+            </Typography>
+          </AnimatedCard>
         </Box>
       </Box>
     </Box>

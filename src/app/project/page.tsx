@@ -14,7 +14,7 @@ import {
   DialogActions,
 } from "@mui/material";
 import Grid from "@mui/material/Grid";
-import { GrProjects } from "react-icons/gr";
+
 
 interface AnimatedCardProps {
   children: ReactNode;
@@ -165,89 +165,89 @@ function ProjectGallery() {
     {
       title: "ETL Pipeline",
       affiliation: "Trendgrabbr",
-      affiliation_url: "./trendgrabbr.png",
+      affiliation_url: "https://my-personal-website.nyc3.cdn.digitaloceanspaces.com/photos/trendgrabbr.png",
       location: 'remote',
       description:
         "I built an ETL pipeline that extracts informations from a handful of websites using playwright. We then tranform the unstructured data into a table and store it in a Postgre database. All the transformations, we use SQL to merge tables and Prefect to orchestrate the workflow weekly.",
       tools: ["Prefect", "Playwright", "Python", "Docker", "PostgreSQL"],
-      image: "/etl_pipeline.png",
+      image: "https://my-personal-website.nyc3.cdn.digitaloceanspaces.com/photos/etl_pipeline.png",
       date: "February 2024",
     },
     {
       title: "Second Personal Website",
       affiliation: "Personal",
-      affiliation_url: "./personal_project.png",
+      affiliation_url: "https://my-personal-website.nyc3.cdn.digitaloceanspaces.com/photos/personal_project.png",
       location: 'remote',
       description:
         "In my second website, I wanted to further my knowledge in using Typescript, containerizing using docker, and finally hosting a webapplication on the cloud. This project was to update from my previous website and consolidate all my skills, projects, and experience all on one hosted webapplication. ",
       tools: ["React", "Typescript", "Next.js", "Docker"],
-      image: "/personal_website_2.png",
+      image: "https://my-personal-website.nyc3.cdn.digitaloceanspaces.com/photos/personal_website_2.png",
       date: "December 2024",
     },
     {
       title: "Documentation AI",
       affiliation: "Komatsu",
-      affiliation_url: "./komatsu.svg",
+      affiliation_url: "https://my-personal-website.nyc3.cdn.digitaloceanspaces.com/photos/komatsu.svg",
       location: 'Tucson, AZ',
       description:
         "I led a team to build a Retrieval Augmented Generative AI using LLaMa index to help Komatsu Technical writers to speed up their revising and brainstorming process while also keeping their local data safe. This full stack project used React for the frontend and Python in the backend, with Flask for integration.",
       tools: ["React", "Typescript", "Python", "Flask"],
-      image: "/komatsu_project.png",
+      image: "https://my-personal-website.nyc3.cdn.digitaloceanspaces.com/photos/komatsu_project.png",
       date: "June 2024 - December 2024",
     },
     {
       title: "Natural Language Project",
       affiliation: "University of Arizona",
-      affiliation_url: "./fullualogo.png",
+      affiliation_url: "https://my-personal-website.nyc3.cdn.digitaloceanspaces.com/photos/fullualogo.png",
       location: 'Tucson, AZ',
       description:
         "I applied quantitative analysis on TED Talk data to conduct natural language analysis. I used Bokeh for visualizations and trained a word2vec model to map word similarities, clustering words by context.",
       tools: ["Python", "Pandas", "Bokeh"],
-      image: "/data_science_project.png",
+      image: "https://my-personal-website.nyc3.cdn.digitaloceanspaces.com/photos/data_science_project.png",
       date: "November 2024",
     },
     {
       title: "Customer Name Matching",
       affiliation: "Avnet",
-      affiliation_url: "./avnet.svg",
+      affiliation_url: "https://my-personal-website.nyc3.cdn.digitaloceanspaces.com/photos/avnet.svg",
       location: 'Phoenix, AZ',
       description:
         "After gathering data from Duns & Bradstreet, I cleaned customer name data using preprocessing techniques and ran fuzzy matching scores to group names that scored at least 85% similarity.",
       tools: ["Python", "Pandas"],
-      image: "/levenshtein.png",
+      image: "https://my-personal-website.nyc3.cdn.digitaloceanspaces.com/photos/levenshtein.png",
       date: "July 2024 - August 2024",
     },
     {
       title: "First Personal Website",
       affiliation: "Personal Project",
-      affiliation_url: "./personal_project.png",
+      affiliation_url: "https://my-personal-website.nyc3.cdn.digitaloceanspaces.com/photos/personal_project.png",
       location: 'remote',
       description:
         "My first front-end project, a single-page website hosted on Google’s Firebase. I explored various web development concepts, used Tailwind CSS for responsive styling, and implemented most functionality in JavaScript.",
       tools: ["JavaScript", "React"],
-      image: "/personal_website.png",
+      image: "https://my-personal-website.nyc3.cdn.digitaloceanspaces.com/photos/personal_website.png",
       date: "January 2024",
     },
     {
       title: "Redesigning Floor Layout",
       affiliation: "Amazon",
-      affiliation_url: "./amazon.svg",
+      affiliation_url: "https://my-personal-website.nyc3.cdn.digitaloceanspaces.com/photos/amazon.svg",
       location: 'Jeffersonville, IN',
       description:
         "I redesigned the blueprint for managing incoming packages at the warehouse to reduce employee idle time. Optimizing package drop-off points and timing led to an annual saving projection of $1.6 million.",
       tools: ["Excel"],
-      image: "sdf8.JPG",
+      image: "https://my-personal-website.nyc3.cdn.digitaloceanspaces.com/photos/sdf8.JPG",
       date: "May 2023 - July 2023",
     },
     {
       title: "ASA Datafest",
       affiliation: "American Statistical Association",
-      affiliation_url: "asalogo.webp",
+      affiliation_url: "https://my-personal-website.nyc3.cdn.digitaloceanspaces.com/photos/asalogo.webp",
       location: 'Tucson, AZ',
       description:
         "During the ASA Datathon, we used pro-bono data to help lawyers advise clients based on geography. I led the visualization efforts to show where certain types of crimes were taking place.",
       tools: ["PowerBI", "Python", "Folium"],
-      image: "./asa_vis.png",
+      image: "https://my-personal-website.nyc3.cdn.digitaloceanspaces.com/photos/asa_vis.png",
       date: "March 2023",
     },
   ];

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { ThemeProvider, CssBaseline, Box } from "@mui/material";
 import Navbar from "./components/navbar/page";
 import Footer from "./components/footer/page";
@@ -9,8 +9,6 @@ import { lightTheme } from "./theme";
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-
-
   return (
     <html lang="en">
       <body>

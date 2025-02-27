@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useRef, useState, useEffect, ReactNode} from "react";
 import { Box, Typography } from "@mui/material";
 import { LiaPython } from "react-icons/lia";
 import { BiLogoTypescript, BiLogoJava, BiLogoCss3, BiLogoHtml5 } from "react-icons/bi";
@@ -7,6 +7,47 @@ import { VscTerminalBash } from "react-icons/vsc";
 import { SiPostgresql, SiFastapi, SiFlask, SiPrefect, SiD3Dotjs, SiTableau, SiLangchain, SiTensorflow } from "react-icons/si";
 import { FaAws, FaDocker, FaReact } from "react-icons/fa";
 import { PiStackSimple } from "react-icons/pi";
+
+
+interface AnimatedCardProps {
+  children: ReactNode;
+}
+
+const AnimatedCard: React.FC<AnimatedCardProps> = ({ children }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState<boolean>(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisible(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => {
+      if (ref.current) observer.unobserve(ref.current);
+    };
+  }, []);
+
+  return (
+    <Box
+      ref={ref}
+      sx={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? "none" : "translateY(20px)",
+        transition: "opacity 0.6s ease-out, transform 0.6s ease-out",
+      }}
+    >
+      {children}
+    </Box>
+  );
+};
 
 function Experience() {
   return (
@@ -110,8 +151,8 @@ function Experience() {
               ],
             },
           ].map((item, index) => (
+            <AnimatedCard key={index}>
             <Box
-              key={index}
               sx={{
                 display: "flex",
                 flexDirection: "column",
@@ -157,6 +198,8 @@ function Experience() {
                 ))}
               </Box>
             </Box>
+            </AnimatedCard>
+            
           ))}
         </Box>
       </Box>
